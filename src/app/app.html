@@ -1,0 +1,22 @@
+
+<div class="main-layout">
+  
+  <!-- מונה המתכונים למעלה -->
+  <app-recipe-counter></app-recipe-counter>
+
+  <h1>ספר המתכונים שלי</h1>
+
+  <!-- אזור הקטלוג: לולאה שעוברת על כל המתכונים ומציגה כרטיסים -->
+<div class="recipes-container">
+  <app-recipe-card
+    *ngFor="let recipe of s.getAllRecipe()"
+    [name]="recipe.name"
+    [category]="recipe.category"
+    [time]="recipe.time"
+    [difficulty]="recipe.difficulty">
+  </app-recipe-card>
+</div>
+  <!-- רשימת המתכונים השמורים למטה -->
+  <app-saved-recipes></app-saved-recipes>
+
+</div>

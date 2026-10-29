@@ -1,0 +1,22 @@
+<div class="saved-recipes-container">
+  <h2>מתכונים שמורים</h2>
+  
+  <!-- הצגת מספר המתכונים השמורים -->
+  <p>מספר המתכונים שנשמרו: {{ s.savedRecipes().length }}</p>
+
+  <!-- הודעה כאשר הרשימה ריקה -->
+  <p *ngIf="s.savedRecipes().length === 0">
+    הרשימה ריקה, כדאי להוסיף כמה מתכונים!
+  </p>
+
+  <!-- רשימת המתכונים -->
+  <ul>
+    <li *ngFor="let recipe of s.savedRecipes()">
+      <strong>{{ recipe.name }}</strong> 
+      - קטגוריה: {{ recipe.category }} 
+      - זמן הכנה: {{ recipe.time }} דקות
+    </li>
+  </ul>
+
+  <button (click)="onClearList()">ניקוי הרשימה</button>
+</div>
